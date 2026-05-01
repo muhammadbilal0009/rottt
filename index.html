@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PM2.5 Levels Across Indian Cities</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body class="page-bg-india">
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="nav-inner">
+      <div class="nav-brand">Air Pollution</div>
+      <div class="nav-links">
+        <a class="nav-link" href="../home/index.html">Home</a>
+        <a class="nav-link active" href="./india_bar.html">India</a>
+        <a class="nav-link" href="./usa_bar.html">USA</a>
+        <a class="nav-link" href="./index.html">Comparison</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page">
+    <div class="container">
+      <h1>Seasonal PM2.5 (Fine Inhalable Particles) Across Indian Cities</h1>
+
+      <section class="chart-shell">
+        <div class="filter-row">
+          <label for="india-city-filter">Filter by City:</label>
+          <select id="india-city-filter" class="city-select" aria-label="Select India city"></select>
+        </div>
+
+        <svg id="india-chart" role="img" aria-label="India grouped PM2.5 chart"></svg>
+        <div id="india-legend" class="legend"></div>
+      </section>
+    </div>
+  </main>
+
+  <div id="tooltip" class="tooltip"></div>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="./js/india.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,375 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #000000;
+  --panel: #060606;
+  --text: #f5f5f5;
+  --muted: #b8b8b8;
+  --axis: #d0d0d0;
+  --grid: #252525;
+  --card-border: #161616;
+  --tooltip-bg: #111111;
+  --nav-bg: rgba(0, 0, 0, 0.93);
+  --nav-border: #1f1f1f;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  background-image: url("../background.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2000;
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+  backdrop-filter: blur(3px);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nav-brand {
+  font-size: 1.4rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff2d2d, #9b2dff, #2d6bff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 0.88rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.nav-link.active {
+  background: #ffffff;
+  color: #000000;
+}
+
+.home-link-placeholder {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+body.page-bg-india .nav-link.active {
+  background: linear-gradient(90deg, #ff9933, #2e8b57);
+  color: #ffffff;
+}
+
+body.page-bg-usa .nav-link.active {
+  background: linear-gradient(90deg, #001f54, #dc143c);
+  color: #ffffff;
+}
+
+body.page-bg-comparison .nav-link.active {
+  background: #9b2dff;
+  color: #ffffff;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 88px 18px 28px;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+body.page-bg-india .container,
+body.page-bg-usa .container {
+  max-width: 1062px;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  letter-spacing: 0.6px;
+}
+
+.container>h1 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+body.page-bg-india .container>h1,
+body.page-bg-usa .container>h1 {
+  font-size: clamp(1.1rem, 2.1vw, 1.8rem);
+  white-space: nowrap;
+}
+
+body.page-bg-comparison .container>h1 {
+  font-size: clamp(1.15rem, 2.2vw, 1.95rem);
+  color: #f8f8f8;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+  white-space: nowrap;
+}
+
+body.page-bg-comparison .comparison-title .india-word {
+  color: #ff2d2d;
+  text-shadow: 0 0 10px rgba(255, 45, 45, 0.45);
+}
+
+body.page-bg-comparison .comparison-title .usa-word {
+  color: #2fbf2f;
+  text-shadow: 0 0 10px rgba(47, 191, 47, 0.45);
+}
+
+body.page-bg-india .container>h1 {
+  background: linear-gradient(90deg, #ff9933, #2e8b57);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.page-bg-usa .container>h1 {
+  background: linear-gradient(90deg, #001f54, #dc143c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.filter-row label {
+  color: #ffffff;
+  font-size: 0.92rem;
+}
+
+.city-select {
+  min-width: 210px;
+  background: #080808;
+  color: #ffffff;
+  border: 1px solid #393939;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+}
+
+.chart-shell {
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  background: rgba(8, 8, 8, 0.46);
+  padding: 14px;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.24);
+}
+
+body.page-bg-india .chart-shell {
+  border-color: rgba(255, 153, 51, 0.58);
+  background: linear-gradient(135deg, rgba(255, 153, 51, 0.22), rgba(46, 139, 87, 0.2));
+}
+
+body.page-bg-usa .chart-shell {
+  border-color: rgba(220, 20, 60, 0.58);
+  background: linear-gradient(135deg, rgba(0, 31, 84, 0.24), rgba(220, 20, 60, 0.2));
+}
+
+svg {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: clamp(300px, 52vh, 500px);
+}
+
+.axis text {
+  fill: #f5f5f5;
+  font-size: 13px;
+  font-weight: 600;
+  stroke: #111111;
+  stroke-width: 0.35px;
+  paint-order: stroke;
+}
+
+.axis .domain {
+  stroke: #f2f2f2;
+  stroke-width: 2px;
+  stroke-dasharray: none;
+}
+
+.axis path,
+.axis line {
+  stroke: var(--axis);
+  stroke-width: 1.4px;
+  stroke-dasharray: none;
+  shape-rendering: crispEdges;
+}
+
+.grid line {
+  stroke: var(--grid);
+  stroke-dasharray: 2 3;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  margin-top: 12px;
+  max-height: 180px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #f0f0f0;
+  font-size: 13px;
+}
+
+.legend-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  border: 1px solid #444;
+}
+
+body.page-bg-india .city-select {
+  border-color: rgba(255, 153, 51, 0.65);
+}
+
+body.page-bg-usa .city-select {
+  border-color: rgba(220, 20, 60, 0.65);
+}
+
+.home-card {
+  margin-top: 12px;
+  border: 1px solid #1d1d1d;
+  border-radius: 12px;
+  background: rgba(8, 8, 8, 0.45);
+  padding: 18px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.home-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.home-links a {
+  text-decoration: none;
+  color: #ffffff;
+  border: 1px solid #3b3b3b;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.home-links a:hover {
+  border-color: #ffffff;
+}
+
+.tooltip {
+  position: fixed;
+  pointer-events: none;
+  opacity: 0;
+  background: var(--tooltip-bg);
+  color: #ffffff;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 12px;
+  line-height: 1.35;
+  transform: translate(12px, 12px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+  z-index: 3000;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 92px 10px 22px;
+  }
+
+  .container>h1 {
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
+  }
+
+  body.page-bg-india .container>h1,
+  body.page-bg-usa .container>h1 {
+    font-size: clamp(0.9rem, 3.6vw, 1.35rem);
+  }
+
+  body.page-bg-comparison .container>h1 {
+    font-size: clamp(0.86rem, 3.25vw, 1.2rem);
+  }
+
+  .filter-row {
+    gap: 8px;
+  }
+
+  .nav-inner {
+    padding: 10px;
+  }
+
+  .chart-shell {
+    padding: 8px;
+  }
+
+  .city-select {
+    width: 100%;
+  }
+
+  .legend {
+    max-height: 220px;
+  }
+}
